@@ -57,7 +57,7 @@ export const HomeScreen = () => {
 
 
       <Text style={styles.description}>
-        Explora los últimos kits, mercancías y mucho más de Chelsea. ¡Prepárate para la temporada y apoya a los Blues!
+        Explora los últimos kits, mercancías y mucho más de Chelsea. ¡Prepárate para la nueva temporada y apoya a los Blues!
       </Text>
     </View>
   );
