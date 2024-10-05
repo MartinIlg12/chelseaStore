@@ -34,6 +34,18 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
   },
+  fab: {
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#1E88E5',  
+    borderRadius: 50,
+    elevation: 5, 
+  },
+  fabIcon: {
+    color: 'white',
+  },
   button: {
     backgroundColor: '#007BFF',
     borderRadius: 25,
@@ -118,5 +130,86 @@ description: {
   color: '#fff',
   textAlign: 'center',
   paddingHorizontal: 20,
+},
+containerStyle: {
+  backgroundColor: '#333',
+  padding: 20,
+  marginHorizontal: 20,
+  borderRadius: 10,
+  elevation: 5, 
+},
+modalContent: {
+  alignItems: 'center',
+  backgroundColor: '#333',
+},
+modalTitle: {
+  fontSize: 22,
+  color: '#333',
+  fontWeight: 'bold',
+  marginBottom: 20,
+},
+inputModal: {
+  width: '100%', 
+  marginBottom: 15,
+  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+},
+divider: {
+  width: '100%',
+  height: 1,
+  marginBottom: 20,
+},
+closeButton: {
+  backgroundColor: '#0A4595',
+  paddingVertical: 10,
+  paddingHorizontal: 30,
+  borderRadius: 5,
+  marginTop: 20,
+},
+buttonText: {
+  color: '#fff',
+  fontSize: 16,
+},
+card: {
+  margin: 15,
+  borderRadius: 10,
+  elevation: 5, 
+  backgroundColor: '#fff',
+},
+cardContent: {
+  flexDirection: 'row', 
+  alignItems: 'center',
+  padding: 10,
+},
+productImage: {
+  width: 100,
+  height: 100,
+  borderRadius: 10,
+  marginRight: 15,
+},
+textContent: {
+  flex: 1, 
+},
+productName: {
+  fontSize: 18,
+  fontWeight: 'bold',
+  color: '#333',
+  marginBottom: 5,
+},
+productDescription: {
+  fontSize: 14,
+  color: '#666',
+  marginBottom: 5,
+},
+productPrice: {
+  fontSize: 16,
+  color: '#0A4595', 
+},
+iconContainer: {
+  marginLeft: 10,
+  justifyContent: 'center',
+},
+iconButton: {
+  backgroundColor: '#0A4595', 
+  borderRadius: 50, 
 },
 });
