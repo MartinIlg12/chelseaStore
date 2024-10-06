@@ -87,11 +87,70 @@ container: {
   backgroundColor: 'black', 
   padding: 20,
 },
+editContainer: {
+  flex: 1,
+  padding: 13,
+  backgroundColor: '#f5f5f5',
+},
+editCard: {
+  padding: 13,
+  marginVertical: 5,
+  borderRadius: 10,
+  backgroundColor: '#fff',
+  elevation: 1, 
+},
+cardContent2: {
+  flexDirection: 'column',
+  alignItems: 'center',
+},
+editProductImage: {
+  width: 110,
+  height: 110,
+  borderRadius: 8,
+  marginBottom: 16,
+  backgroundColor: '#ccc', 
+},
+labelText: {
+  fontSize: 9,         
+  fontWeight: 'bold',   
+  marginBottom: 3,      
+  color: '#333',        
+},
+inputGroup: {
+  width: '100%',
+  marginVertical: 10,
+},
+inputField: {
+  backgroundColor: '#fff',
+  borderColor: '#ddd',
+  borderWidth: 1,
+  borderRadius: 8,
+  paddingHorizontal: 16,
+  paddingVertical: 8,
+  marginBottom: 12,
+  fontSize: 11,
+  color: '#333',
+},
+actionButtonContainer: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginTop: 5,
+  width: '80%',
+},
+saveButton: {
+  backgroundColor: '#4CAF50', 
+  borderRadius: 8,
+},
+deleteButton: {
+  backgroundColor: '#F44336', 
+  borderRadius: 8,
+},
 header: {
   flexDirection: 'row',
   justifyContent: 'space-between',
   alignItems: 'center',
   marginBottom: 20,
+  marginTop:50
 },
 userInfo: {
   flexDirection: 'row',
@@ -137,6 +196,7 @@ containerStyle: {
   marginHorizontal: 20,
   borderRadius: 10,
   elevation: 5, 
+  
 },
 modalContent: {
   alignItems: 'center',

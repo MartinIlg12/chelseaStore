@@ -94,7 +94,20 @@ export const NewProductComponent = ({ showModalProduct, setShowModalProduct }: P
                     <View style={styles.modalContent}>
                         <Text style={styles.modalTitle}>Nuevo Producto</Text>
                         <Divider style={styles.divider} />
-
+                        <TextInput
+                            label="Id Camisa"
+                            style={styles.inputModal}
+                            underlineColor="transparent"
+                            theme={{ colors: { text: '#fff', primary: '#fff', placeholder: '#ccc' } }}
+                            onChangeText={(value) => handleSetValues('imagen', value)}
+                        />
+                        <TextInput
+                            label="Código Camisa"
+                            style={styles.inputModal}
+                            underlineColor="transparent"
+                            theme={{ colors: { text: '#fff', primary: '#fff', placeholder: '#ccc' } }}
+                            onChangeText={(value) => handleSetValues('imagen', value)}
+                        />
                         <TextInput
                             label="Url de la Imagen"
                             style={styles.inputModal}
@@ -120,6 +133,14 @@ export const NewProductComponent = ({ showModalProduct, setShowModalProduct }: P
                         />
                         <TextInput
                             label="Precio"
+                            style={styles.inputModal}
+                            underlineColor="transparent"
+                            keyboardType='numeric'
+                            theme={{ colors: { text: '#fff', primary: '#fff', placeholder: '#ccc' } }}
+                            onChangeText={(value) => handleSetValues('price', value)}
+                        />
+                        <TextInput
+                            label="Stock"
                             style={styles.inputModal}
                             underlineColor="transparent"
                             keyboardType='numeric'

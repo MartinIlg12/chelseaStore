@@ -3,19 +3,20 @@ import { View, Image, StyleSheet } from 'react-native';
 import { Text, IconButton, Portal, Modal, Button, Divider, TextInput, FAB } from 'react-native-paper';
 import { styles } from '../theme/styles';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../config/firebaseConfig';
+import { auth, dbRealTime } from '../config/firebaseConfig';
 import firabase from '@firebase/auth'
 import { updateProfile } from 'firebase/auth';
 import { FlatList } from 'react-native-gesture-handler';
 import { Item } from 'react-native-paper/lib/typescript/components/Drawer/Drawer';
 import { ProductCardComponent } from './components/ProductCardComponent';
 import { NewProductComponent } from './components/NewProductComponent';
+import { onValue, ref } from 'firebase/database';
 
 interface FormUser{
   name: string,
 }
 
-interface Product{
+export interface Product{
   id: string,
   code: string,
   imagen: string,
@@ -33,12 +34,6 @@ export const HomeScreen = () => {
   const [userData, setUserData] = useState<firabase.User | null >(null)
 
   const [products, setProducts] = useState<Product[]>([
-    {id: '1', code: 'CH001', imagen: 'https://images.footballfanatics.com/chelsea/chelsea-cup-nike-home-stadium-shirt-2024-25-with-caicedo-25-printing_ss5_p-201964580+pv-1+u-jcclxlhnmpfv8buvxkao+v-nix0zrfmfodfuct2245m.jpg?_hv=2&w=900',
-    nameProduct:'CAMISA LOCAL CHELSEA 2024', description:'Camiseta del chelsea local 2024',price:120, stock:100
-    },
-    {id: '2', code: 'CH002', imagen: 'https://images.footballfanatics.com/chelsea/chelsea-nike-away-stadium-shirt-2024-25-with-njackson-15-printing_ss5_p-201963727+pv-1+u-ci7odoxn8tgsz6j2waau+v-uddlck5tntkryovsi5bg.jpg?_hv=2&w=900',
-    nameProduct:'CAMISA VISITANTE CHELSEA 2024', description:'Camiseta del chelsea visitante 2024',price:120, stock:100
-    }
    ])
 
   const [showModalProfile, setShowModalProfile] = useState<boolean>(false);
@@ -47,6 +42,7 @@ export const HomeScreen = () => {
   useEffect(()=>{
     setUserData(auth.currentUser);
     setFormUser({name: auth.currentUser?.displayName ?? ''})
+    getAllProduct();
   },[])
 
   const handleSetValues=(key:string, value:string)=>{
@@ -62,7 +58,19 @@ const handleUpdateUser = async ()=>{
   
   setShowModalProfile(false);
 }
-
+const getAllProduct = () =>{
+  const dbRef = ref(dbRealTime, 'products');
+  onValue(dbRef, (snapshot)=>{
+    const data= snapshot.val();
+    const getKeys= Object.keys(data);
+    const listProduct: Product[] = [];
+    getKeys.forEach((key)=>{
+      const value={...data[key], id:key}
+      listProduct.push(value);
+    });
+    setProducts(listProduct);
+  })
+}
   return (
     <>
     <View style={styles.container}>
@@ -88,7 +96,7 @@ const handleUpdateUser = async ()=>{
       </View>
       <FlatList
         data={products}
-        renderItem={({item}) => <ProductCardComponent/>}
+        renderItem={({item}) => <ProductCardComponent product={item}/>}
         keyExtractor={item => item.id}
         
       />
