@@ -109,8 +109,6 @@ export const DetailProductScreen = () => {
               style={styles.inputField}
               value={formEdit.description}
               onChangeText={(value) => handleSetValues('description', value)}
-              multiline
-              numberOfLines={3}
             />
 
             <Text style={styles.labelText}>Precio:</Text>
